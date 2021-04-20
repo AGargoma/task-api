@@ -35,9 +35,8 @@ router.registry.extend(task_router.registry)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
-    # path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    path('api-auth/', include('rest_framework.urls')),
+    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     re_path(r'^download/(?P<user>[\w]+)/(?P<filename>[\w]+)\.(?P<ext>[\w]+)$', download),
 
 ]
